@@ -1,4 +1,4 @@
-package com.zxxia.hello;
+package com.zxxia.arraylist;
 
 import java.util.ArrayList;
 import java.util.Scanner;

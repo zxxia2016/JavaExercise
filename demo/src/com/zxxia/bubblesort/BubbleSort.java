@@ -1,4 +1,4 @@
-package com.zxxia.hello;
+package com.zxxia.bubblesort;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.zxxia.hello;
+package com.zxxia.string;
 
 import java.util.Random;
 import java.util.Scanner;

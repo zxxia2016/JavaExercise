@@ -1,6 +1,5 @@
-package com.zxxia.hello;
+package com.zxxia.store;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 class Goods {

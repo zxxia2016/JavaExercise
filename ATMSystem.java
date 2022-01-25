@@ -55,10 +55,11 @@ public class ATMSystem {
             System.out.println("========================欢迎进入操作界面========================");
             System.out.println("1、查询");
             System.out.println("2、存款");
-            System.out.println("3、转账");
-            System.out.println("4、修改密码");
-            System.out.println("5、退出");
-            System.out.println("6、注销");
+            System.out.println("3、取款");
+            System.out.println("4、转账");
+            System.out.println("5、修改密码");
+            System.out.println("6、退出");
+            System.out.println("7、注销");
             System.out.println("请输入您的操作指令：");
             int command = scanner.nextInt();
             switch (command) {
@@ -71,18 +72,22 @@ public class ATMSystem {
                 }
                 break;
                 case 3: {
-                    transferMoney(account, scanner);
+                    pullMoney(account, scanner);
                 }
                 break;
                 case 4: {
-                    updatePassword(account, scanner);
+                    transferMoney(account, scanner);
                 }
                 break;
                 case 5: {
+                    updatePassword(account, scanner);
+                }
+                break;
+                case 6: {
                     System.out.println("欢迎下次继续光临！！");
                     return;
                 }
-                case 6: {
+                case 7: {
                     accountArrayList.remove(account);
                     System.out.println("您的账号注销成功，无法继续用此账号登录");
                     return;
@@ -102,6 +107,26 @@ public class ATMSystem {
         account.money += count;
         System.out.println("存款成功");
         showAccount(account);
+    }
+
+    private static void pullMoney(Account account, Scanner scanner) {
+        System.out.println("========================欢迎进入账户转账操作========================");
+        while (true) {
+            System.out.println("请输入要取出的金额，并且是100的整数倍：");
+            int count = scanner.nextInt();
+            if (count > account.money) {
+                System.out.println("余额不足，请重新输入");
+                continue;
+            }
+            if (count % 100 != 0) {
+                System.out.println("非法输入，请重新输入");
+                continue;
+            }
+            account.money -= count;
+            System.out.println("取钱成功");
+            showAccount(account);
+            break;
+        }
     }
 
     private static void transferMoney(Account account, Scanner scanner) {

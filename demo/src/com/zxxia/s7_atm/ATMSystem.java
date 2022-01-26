@@ -1,4 +1,4 @@
-package com.zxxia.atm;
+package com.zxxia.s7_atm;
 
 import java.util.ArrayList;
 import java.util.Random;

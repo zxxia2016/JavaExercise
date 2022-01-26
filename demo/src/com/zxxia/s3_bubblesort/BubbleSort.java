@@ -1,4 +1,4 @@
-package com.zxxia.bubblesort;
+package com.zxxia.s3_bubblesort;
 
 import java.util.Arrays;
 

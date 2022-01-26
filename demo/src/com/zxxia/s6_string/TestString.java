@@ -1,4 +1,4 @@
-package com.zxxia.string;
+package com.zxxia.s6_string;
 
 import java.util.Random;
 import java.util.Scanner;

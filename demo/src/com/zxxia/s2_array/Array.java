@@ -1,4 +1,4 @@
-package com.zxxia.array;
+package com.zxxia.s2_array;
 
 /**
  * zxxia

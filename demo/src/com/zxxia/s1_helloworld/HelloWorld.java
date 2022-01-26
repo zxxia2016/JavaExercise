@@ -1,4 +1,4 @@
-package com.zxxia.helloworld;
+package com.zxxia.s1_helloworld;
 
 public class HelloWorld {
 	public static void main(String[] args) {

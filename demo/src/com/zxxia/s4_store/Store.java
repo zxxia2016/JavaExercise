@@ -1,4 +1,4 @@
-package com.zxxia.store;
+package com.zxxia.s4_store;
 
 import java.util.Scanner;
 
@@ -9,6 +9,7 @@ class Goods {
     int buyCount;
 }
 
+//商城，数组练习
 
 /**
  * zxxia

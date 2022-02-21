@@ -64,5 +64,6 @@ public class ExtendsTest {
         s.log();
         Teacher t = new Teacher();
         t.teach();
+        t.teach();
     }
 }

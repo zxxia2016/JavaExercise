@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb7e74dc-2ff2-435e-b0cb-20367939f248" name="Changes" comment="修改目录名称">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/com/zxxia/s12_extents/ExtendsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s12_extents/ExtendsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +155,7 @@
       <workItem from="1643101518188" duration="12401000" />
       <workItem from="1645261768270" duration="1159000" />
       <workItem from="1645341121999" duration="3624000" />
-      <workItem from="1645409942307" duration="338000" />
+      <workItem from="1645409942307" duration="733000" />
     </task>
     <task id="LOCAL-00001" summary="修改目录名称">
       <created>1643189046151</created>

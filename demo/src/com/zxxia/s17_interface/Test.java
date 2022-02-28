@@ -20,9 +20,9 @@ interface ISportMan {
     static void wark() {
 
     }
-    private void write() {
-
-    }
+//    private void write() {
+//
+//    }
 }
 interface Raw{
     void rule();

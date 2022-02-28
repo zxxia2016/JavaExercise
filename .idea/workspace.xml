@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb7e74dc-2ff2-435e-b0cb-20367939f248" name="Changes" comment="修改目录名称">
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s13_package/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s13_package/p1/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s13_package/p1/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s13_package/p2/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s14_final/Constant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s14_final/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s15_enum/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s16_abstract/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s16_abstract/Test1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s17_interface/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,10 +37,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/src/com/zxxia/s16_abstract" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\JavaExecise\demo\src\com\zxxia\s16_abstract" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\t\JavaExecise\demo\src\com\zxxia\string" />
       <recent name="E:\t\JavaExecise\demo\src\com\zxxia\arraylist" />
@@ -119,15 +118,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -162,7 +159,10 @@
       <workItem from="1643101518188" duration="12401000" />
       <workItem from="1645261768270" duration="1159000" />
       <workItem from="1645341121999" duration="3624000" />
-      <workItem from="1645409942307" duration="4972000" />
+      <workItem from="1645409942307" duration="7381000" />
+      <workItem from="1645861839463" duration="3402000" />
+      <workItem from="1645967930671" duration="2540000" />
+      <workItem from="1646057395104" duration="141000" />
     </task>
     <task id="LOCAL-00001" summary="修改目录名称">
       <created>1643189046151</created>

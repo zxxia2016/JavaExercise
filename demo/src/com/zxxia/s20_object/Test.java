@@ -6,6 +6,7 @@ import java.util.Objects;
  * Object祖宗类，JDK1.7才有
  * 1. toString方法，返回类名权限名内存地址,这返回值毫无意义；但重写之后就有意义，可以看到想的信息，例如Student:toString
  * 2. equals方法，比较地址是否相同；也是重写后，内容更丰富
+ * 3. Object.isNull
  */
 class Student //extends Object //等同于继承Object
 {

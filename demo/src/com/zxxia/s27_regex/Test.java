@@ -3,12 +3,15 @@ package com.zxxia.s27_regex;
 import com.zxxia.iTest;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
- * 正则表达式
- * 1. String.matches
- * 2. String.replaceAll
- * 3. String.split
+ * 正则表达式：文档查看Pattern类
+ * 1. String.matches, Exp: MatchesTest
+ * 2. String.replaceAll, Exp：SplitReplaceAllTest
+ * 3. String.split, Exp：SplitReplaceAllTest
+ * 4. 案例：爬虫, Exp：SpiderTest
  */
 
 class MatchesTest implements iTest {
@@ -71,9 +74,49 @@ class MatchesTest implements iTest {
     }
 }
 
+class SplitReplaceAllTest implements iTest {
+    @Override
+    public void run() {
+        String strName = "神雕侠侣222www天龙八部222dddd射雕英雄传";
+        String[] arr = strName.split("\\w+");
+        // 神雕侠侣   天龙八部    射雕英雄传
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+        String names = strName.replaceAll("\\w+", ":");
+        System.out.println(names);       //神雕侠侣:天龙八部:射雕英雄传
+    }
+}
+
+//需求：从上面的内容中爬取出 电话号码和邮箱。
+class SpiderTest implements iTest {
+
+    @Override
+    public void run() {
+        String rs = "来黑马程序学习Java,电话020-43422424，或者联系邮箱" +
+                "itcast@itcast.cn,电话18762832633，0203232323" +
+                "邮箱bozai@itcast.cn，400-100-3233 ，4001003232";
+        // 1. 定义爬虫规则
+        String regex = "(\\w{1,30}@[a-zA-Z]{2,20}(\\.[a-zA-Z]{2,20}){1,2})|(1[3-9]\\d{9})|(\\d{2,6}-?\\d{5,20})|(400-?\\\\d{3,9}-?\\\\d{3,9})";
+        // 2. 把规则编译成匹配对象
+        Pattern pattern = Pattern.compile(regex);
+        // 3. 匹配对象匹配字符串，得到匹配器对象
+        Matcher matcher = pattern.matcher(rs);
+        // 4. 遍历匹配器
+        while (matcher.find()) {
+            String result = matcher.group();
+            System.out.println(result);
+        }
+    }
+}
+
 public class Test {
     public static void main(String[] args) {
         MatchesTest matchesTest = new MatchesTest();
-        matchesTest.run();
+//        matchesTest.run();
+        SplitReplaceAllTest splitReplaceAllTest = new SplitReplaceAllTest();
+        splitReplaceAllTest.run();
+        SpiderTest spiderTest = new SpiderTest();
+        spiderTest.run();
     }
 }

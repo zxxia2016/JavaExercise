@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb7e74dc-2ff2-435e-b0cb-20367939f248" name="Changes" comment="抽象、接口、多态">
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s27_regex/Test.java" afterDir="false" />
+    <list default="true" id="bb7e74dc-2ff2-435e-b0cb-20367939f248" name="Changes" comment="Regex">
+      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s28_arrays/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/com/zxxia/s27_regex/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s27_regex/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,13 +63,26 @@
       <recent name="E:\t\JavaExecise\demo\src\com\bubblesort" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test (4)">
+  <component name="RunManager" selected="Application.Test (2)">
     <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zxxia.s25_datecalender.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.zxxia.s25_datecalender.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s28_arrays.Test" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zxxia.s28_arrays.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,19 +130,6 @@
       </method>
     </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s23_system.Test" />
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.zxxia.s23_system.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zxxia.s25_datecalender.Test" />
       <module name="demo" />
       <extension name="coverage">
@@ -155,19 +156,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Test" />
       <item itemvalue="Application.Test (3)" />
       <item itemvalue="Application.Test (1)" />
       <item itemvalue="Application.Test (5)" />
       <item itemvalue="Application.Test (4)" />
+      <item itemvalue="Application.Test (2)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test (2)" />
         <item itemvalue="Application.Test (4)" />
         <item itemvalue="Application.Test (5)" />
         <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.Test (3)" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +191,7 @@
       <workItem from="1646057395104" duration="4183000" />
       <workItem from="1646096463697" duration="3425000" />
       <workItem from="1646183597071" duration="3204000" />
-      <workItem from="1646196098913" duration="1719000" />
+      <workItem from="1646196098913" duration="6947000" />
     </task>
     <task id="LOCAL-00001" summary="修改目录名称">
       <created>1643189046151</created>
@@ -206,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643189158450</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Regex">
+      <created>1646197926127</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1646197926127</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +247,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改目录名称" />
     <MESSAGE value="抽象、接口、多态" />
-    <option name="LAST_COMMIT_MESSAGE" value="抽象、接口、多态" />
+    <MESSAGE value="Regex" />
+    <option name="LAST_COMMIT_MESSAGE" value="Regex" />
   </component>
 </project>

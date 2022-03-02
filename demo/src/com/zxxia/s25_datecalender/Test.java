@@ -4,10 +4,9 @@ import com.zxxia.iTest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.MonthDay;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -20,9 +19,12 @@ import java.util.Date;
 
 /**
  * JDK8 日期与时间：返回新对象，不会修改之前的对象
- * 1.LocalDate、LocalTime、LocalDateTime（更全），例子：对应Test
- * 2.
- * 3.
+ * 1. LocalDate、LocalTime、LocalDateTime（更全），例子：对应Test
+ * 2. Instant 获取时间戳
+ * 3. DateTimeFormatter 日期时间格式化、线程安全
+ * 4. Period 日期间隔,差多少年，多少天，多少月 ,用于LocalDate比较
+ * 5. Duration 时间间隔：差多少天，多少小时，多少分， 用LocalDateTime比较
+ * 6. ChronoUnit 计时单元
  */
 
 class DateTest implements iTest {
@@ -145,6 +147,98 @@ class LocalDateTimeTest implements iTest {
         LocalTime localTime1 = localTime.toLocalTime();
     }
 }
+
+class InstantTest implements iTest {
+    @Override
+    public void run() {
+        Instant instant = Instant.now();
+        // UTC时间
+        System.out.println(instant);
+        // 获得系统时间
+        ZonedDateTime zonedDateTime = instant.atZone(ZoneId.systemDefault());
+        System.out.println(zonedDateTime);
+        //如何去返回Date对象，系统时间
+        Date date = Date.from(instant);
+        System.out.println(date);
+        // Date convert Instant
+        Instant instant1 = date.toInstant();
+    }
+}
+
+class DateTimeFormatterTest implements iTest {
+    @Override
+    public void run() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        // 按格式输出时间 2022-03-02 09:26:19
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        System.out.println(dateTimeFormatter.format(localDateTime));
+        System.out.println(localDateTime.format(dateTimeFormatter));
+        // 解析时间字符串
+        String strTime = "2022-03-02 09:26:19";
+        LocalDateTime localDateTime1 = LocalDateTime.parse(strTime, dateTimeFormatter);
+        System.out.println(localDateTime1);
+    }
+}
+
+class PeriodTest implements iTest {
+
+    @Override
+    public void run() {
+        LocalDate localDate = LocalDate.now();
+        System.out.println(localDate);
+        LocalDate localDate1 = LocalDate.of(1987, 11, 2);
+        System.out.println(localDate1);
+        Period period = Period.between(localDate1, localDate);
+        System.out.println(period.getYears());
+        System.out.println(period.getMonths());
+        System.out.println(period.getDays());
+    }
+}
+
+class DurationTest implements iTest {
+
+    @Override
+    public void run() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        LocalDateTime localDateTime1 = LocalDateTime.of(1987, 11, 2, 0,0,0);
+        Duration duration = Duration.between(localDateTime1, localDateTime);
+        duration.toDays();
+        duration.toHours();
+        duration.toMinutes();
+        duration.toMillis();
+    }
+}
+
+class ChronoUnitTest implements iTest {
+
+    @Override
+    public void run() {
+        LocalDateTime today = LocalDateTime.now();
+        System.out.println(today);
+
+        // 生日时间
+        LocalDateTime birthDate = LocalDateTime.of(1990,10,1,
+                10,50,59);
+        System.out.println(birthDate);
+
+        System.out.println("相差的年数：" + ChronoUnit.YEARS.between(birthDate, today));
+        System.out.println("相差的月数：" + ChronoUnit.MONTHS.between(birthDate, today));
+        System.out.println("相差的周数：" + ChronoUnit.WEEKS.between(birthDate, today));
+        System.out.println("相差的天数：" + ChronoUnit.DAYS.between(birthDate, today));
+        System.out.println("相差的时数：" + ChronoUnit.HOURS.between(birthDate, today));
+        System.out.println("相差的分数：" + ChronoUnit.MINUTES.between(birthDate, today));
+        System.out.println("相差的秒数：" + ChronoUnit.SECONDS.between(birthDate, today));
+        System.out.println("相差的毫秒数：" + ChronoUnit.MILLIS.between(birthDate, today));
+        System.out.println("相差的微秒数：" + ChronoUnit.MICROS.between(birthDate, today));
+        System.out.println("相差的纳秒数：" + ChronoUnit.NANOS.between(birthDate, today));
+        System.out.println("相差的半天数：" + ChronoUnit.HALF_DAYS.between(birthDate, today));
+        System.out.println("相差的十年数：" + ChronoUnit.DECADES.between(birthDate, today));
+        System.out.println("相差的世纪（百年）数：" + ChronoUnit.CENTURIES.between(birthDate, today));
+        System.out.println("相差的千年数：" + ChronoUnit.MILLENNIA.between(birthDate, today));
+        System.out.println("相差的纪元数：" + ChronoUnit.ERAS.between(birthDate, today));
+    }
+}
+
 public class Test {
     public static void main(String[] args) throws ParseException {
         DateTest test1 = new DateTest();
@@ -158,6 +252,16 @@ public class Test {
         LocalTimeTest t5 = new LocalTimeTest();
         t5.run();
         LocalDateTimeTest t6 = new LocalDateTimeTest();
-        t5.run();
+        t6.run();
+        InstantTest t7 = new InstantTest();
+        t7.run();
+        DateTimeFormatterTest t8 = new DateTimeFormatterTest();
+        t8.run();
+        PeriodTest t9 = new PeriodTest();
+        t9.run();
+        DurationTest t10 = new DurationTest();
+        t10.run();
+        ChronoUnitTest t11 = new ChronoUnitTest();
+        t11.run();
     }
 }

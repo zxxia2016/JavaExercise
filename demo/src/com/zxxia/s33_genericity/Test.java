@@ -11,7 +11,7 @@ import java.util.List;
  * 2. 集合体系的全局接口和实现类都支持泛型
  * 3. 好处：统一数据类型；把运行期间问题提前到编译期间，避免转换问题
  * 4. 哪些地方可以定义：
- * ---类后面->泛型类
+ * ---类后面->泛型类：MyArrayList
  * ---方法申明上->泛型方法
  * ---接口后面->泛型接口
  */
@@ -25,14 +25,49 @@ class GenericityTest implements iTest {
         list.add(true);
         for (Object o : list) {
             // 运行期间强转风险
-            String e = (String) o;
-            System.out.println(e);
+            // String e = (String) o;
+            // System.out.println(e);
         }
     }
 }
+
+class MyArrayList<T> {
+    private List list = new ArrayList();
+    public void add(T e) {
+        list.add(e);
+    }
+
+    public void remove(T e) {
+        list.remove(e);
+    }
+
+    @Override
+    public String toString() {
+        return "MyArrayList{" +
+                "list=" + list +
+                '}';
+    }
+}
+
+class MyArrayListTest implements iTest {
+
+    @Override
+    public void run() {
+        MyArrayList<String> list = new MyArrayList<>();
+        list.add("aaa");
+        list.add("aaa");
+        list.add("aaa");
+        list.remove("aaa");
+        System.out.println(list);
+    }
+}
+
 public class Test {
     public static void main(String[] args) {
         GenericityTest genericityTest = new GenericityTest();
         genericityTest.run();
+
+        MyArrayListTest myArrayListTest = new MyArrayListTest();
+        myArrayListTest.run();
     }
 }

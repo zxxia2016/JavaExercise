@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb7e74dc-2ff2-435e-b0cb-20367939f248" name="Changes" comment="Regex">
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s29_algorithm/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s30_lambda/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s32_datastructure/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/com/zxxia/s28_arrays/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s28_arrays/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/com/zxxia/s31_collection/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s31_collection/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +63,20 @@
       <recent name="E:\t\JavaExecise\demo\src\com\bubblesort" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Test (1)">
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s31_collection.Test" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zxxia.s31_collection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zxxia.s28_arrays.Test" />
       <module name="demo" />
@@ -84,19 +96,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.zxxia.s27_regex.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s26_packageclass.Test" />
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.zxxia.s26_packageclass.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,19 +141,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Test (5)" />
       <item itemvalue="Application.Test (4)" />
       <item itemvalue="Application.Test (2)" />
       <item itemvalue="Application.Test (6)" />
       <item itemvalue="Application.Test" />
+      <item itemvalue="Application.Test (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Test (6)" />
         <item itemvalue="Application.Test (2)" />
         <item itemvalue="Application.Test (4)" />
-        <item itemvalue="Application.Test (5)" />
       </list>
     </recent_temporary>
   </component>
@@ -179,6 +178,7 @@
       <workItem from="1646183597071" duration="3204000" />
       <workItem from="1646196098913" duration="6947000" />
       <workItem from="1646230127373" duration="5250000" />
+      <workItem from="1646281211518" duration="4512000" />
     </task>
     <task id="LOCAL-00001" summary="修改目录名称">
       <created>1643189046151</created>

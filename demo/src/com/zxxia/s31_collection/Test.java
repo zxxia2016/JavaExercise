@@ -15,20 +15,20 @@ package com.zxxia.s31_collection;
  * -- 集合：不固定的业务场景
  * -----------------------------------------------------------
  * Collect体系
- * - List
- * --- ArrayList：有序，可重复，有索引,但不能通过索引获取
- * --- LinkedList
- * - Set
- * ---HashSet：无序，不可重复，无索引
+ * - List：有序，可重复，有索引
+ * --- ArrayList：原理：增加元素：默认10长度，按1.5被扩容；减少元素：删除，元素往前移动，size-1
+ * --- LinkedList：双链表
+ * - Set：无序，不可重复，无索引
+ * ---HashSet
  * -------LinkedHashSet
  * ---TreeSet
  * -----------------------------------------------------------
  */
 
 import com.zxxia.iTest;
-import com.zxxia.s14_final.Constant;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 
 class ArrayListTest implements iTest {
@@ -59,8 +59,13 @@ class ArrayListTest implements iTest {
         System.out.println(arrayList.size());
         // 判断集合包含某个元素
         System.out.println(arrayList.contains("aaa"));
-        // 删除，不能通过索引删除；成功返回值TRUE
+        // 删除，Collection不能通过索引删除；成功返回值TRUE
         System.out.println(arrayList.remove("ddd"));
+        // 这样是可以通过索引删除的
+        ArrayList arrayList1 = new ArrayList();
+        // 越界
+        // arrayList1.remove(0);
+
         // 转数组
         Object[] a = arrayList.toArray();
         System.out.println(Arrays.toString(a));
@@ -84,6 +89,12 @@ class ArrayListTest implements iTest {
                 break;
             }
         }
+        arr.forEach(new Consumer() {
+            @Override
+            public void accept(Object o) {
+                System.out.println(o);
+            }
+        });
         int[] aa = {1, 2};
         for (int v : aa) {
 

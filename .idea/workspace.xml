@@ -89,12 +89,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s33_genericity.Test" />
+    <configuration name="Test (6)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s29_algorithm.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s33_genericity.*" />
+          <option name="PATTERN" value="com.zxxia.s29_algorithm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,12 +102,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (6)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s29_algorithm.Test" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s33_genericity.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s29_algorithm.*" />
+          <option name="PATTERN" value="com.zxxia.s33_genericity.GenericityTest" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,15 +128,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -180,6 +178,7 @@
       <workItem from="1646196098913" duration="6947000" />
       <workItem from="1646230127373" duration="5250000" />
       <workItem from="1646281211518" duration="4512000" />
+      <workItem from="1646356996091" duration="3239000" />
     </task>
     <task id="LOCAL-00001" summary="修改目录名称">
       <created>1643189046151</created>

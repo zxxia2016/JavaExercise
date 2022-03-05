@@ -15,17 +15,20 @@ package com.zxxia.s31_collection;
  * -- 集合：不固定的业务场景
  * -----------------------------------------------------------
  * Collect体系
- * - List：有序，可重复，有索引
+ * - List：有序，可重复，有索引；例子：ArrayListTest、LinkedListTest
  * --- ArrayList：原理：增加元素：默认10长度，按1.5被扩容；减少元素：删除，元素往前移动，size-1
  * --- LinkedList：双链表:首位操作速度极快，主要API：addFirst、addLast、getFirst、geLast、removeFirst、removeLast；是栈和队列的结合体
  * - Set：无序，不可重复，无索引
- * ---HashSet
- * -------LinkedHashSet
- * ---TreeSet
+ * ---HashSet：无序，不可重复，无索引；底层原理：哈希表存储结构（数组+链表+红黑树）
+ * -------LinkedHashSet：有序，不可重复，无索引
+ * ---TreeSet：排序，不可重复，无索引
  * -----------------------------------------------------------
- * 集合查找某个元素并删除的时候，会出现并发修改异常问题：
+ * 集合查找某个元素并删除的时候，会出现并发修改异常问题；例子：RemoveExceptionTest
  * ---迭代器便利且用集合删除元素可能出现问题
  * ---foreach循环遍历集合且直接用集合删除可能出现问题
+ * -----------------------------------------------------------
+ * 哈希表
+ * --哈希值：根据对象地址，按照某种规则，生成int值；获取哈希值方式：HashCode()
  */
 
 import com.zxxia.iTest;
@@ -38,6 +41,7 @@ class ArrayListTest implements iTest {
 
     @Override
     public void run() {
+
         // 有序，可重复，有索引
         Collection arr = new ArrayList();
         arr.add("Java");
@@ -231,6 +235,7 @@ class HashSetTest implements iTest {
         arr.add(false);
         arr.add(false);
         System.out.println(arr);
+        System.out.println("-------------------- HashSetTest Test End--------------------");
     }
 }
 

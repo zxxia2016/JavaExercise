@@ -1,5 +1,7 @@
 package com.zxxia.s32_datastructure;
 
+import com.zxxia.iTest;
+
 /**
  * 常见数据结构
  * 1. 栈：先进后出，后进先出；例子：弹夹
@@ -23,8 +25,18 @@ package com.zxxia.s32_datastructure;
  * ----平衡二叉树：任意节点高度不差1；如何平衡：左旋、右旋
  * ----红黑树：高度通过”红黑规则“来平衡；增删改查性能都好
  */
+class HashTest implements iTest {
+
+    @Override
+    public void run() {
+        String heima = "heima";
+        System.out.println(heima.hashCode());
+    }
+}
+
 public class Test {
     public static void main(String[] args) {
-
+        HashTest hashTest = new HashTest();
+        hashTest.run();
     }
 }

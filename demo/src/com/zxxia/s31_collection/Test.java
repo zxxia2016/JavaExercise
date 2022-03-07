@@ -18,7 +18,7 @@ package com.zxxia.s31_collection;
  * - List：有序，可重复，有索引；例子：ArrayListTest、LinkedListTest
  * --- ArrayList：原理：增加元素：默认10长度，按1.5被扩容；减少元素：删除，元素往前移动，size-1
  * --- LinkedList：双链表:首位操作速度极快，主要API：addFirst、addLast、getFirst、geLast、removeFirst、removeLast；是栈和队列的结合体
- * - Set：无序，不可重复，无索引；重要：必须重写对象的hashCode和equals方法
+ * - Set：无序，不可重复，无索引；重要：必须重写对象的hashCode和equals方法；先判断hashCode是否相同，再判断equals相同
  * ---HashSet：无序，不可重复，无索引；
  * 底层原理：哈希表存储结构（数组+链表+红黑树）;
  * 默认创建长度16的数组，默认加载因子0.75的数组，数字名为table；

@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bb7e74dc-2ff2-435e-b0cb-20367939f248" name="Changes" comment="Regex">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s38_unmodifiablecollection/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s40_stream/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/com/zxxia/s33_genericity/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s33_genericity/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/com/zxxia/iTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/com/zxxia/iTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +56,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/src/com/zxxia/s16_abstract" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="build.tools" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -62,7 +74,7 @@
       <recent name="E:\t\JavaExecise\demo\src\com\bubblesort" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test (3)">
+  <component name="RunManager" selected="Application.Test (5)">
     <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zxxia.s31_collection.Test" />
       <module name="demo" />
@@ -77,11 +89,11 @@
       </method>
     </configuration>
     <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s28_arrays.Test" />
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s38_unmodifiablecollection.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s28_arrays.*" />
+          <option name="PATTERN" value="com.zxxia.s38_unmodifiablecollection.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,12 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (6)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s29_algorithm.Test" />
+    <configuration name="Test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s36_ddz.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s29_algorithm.*" />
+          <option name="PATTERN" value="com.zxxia.s36_ddz.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,12 +114,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s33_genericity.Test" />
+    <configuration name="Test (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s37_map.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s33_genericity.GenericityTest" />
+          <option name="PATTERN" value="com.zxxia.s37_map.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s40_stream.Test" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zxxia.s40_stream.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,31 +153,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Test (2)" />
-      <item itemvalue="Application.Test (6)" />
-      <item itemvalue="Application.Test" />
       <item itemvalue="Application.Test (1)" />
       <item itemvalue="Application.Test (3)" />
+      <item itemvalue="Application.Test (4)" />
+      <item itemvalue="Application.Test (2)" />
+      <item itemvalue="Application.Test (5)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test (5)" />
+        <item itemvalue="Application.Test (2)" />
+        <item itemvalue="Application.Test (4)" />
         <item itemvalue="Application.Test (3)" />
         <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Test (6)" />
-        <item itemvalue="Application.Test (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -178,7 +205,14 @@
       <workItem from="1646196098913" duration="6947000" />
       <workItem from="1646230127373" duration="5250000" />
       <workItem from="1646281211518" duration="4512000" />
-      <workItem from="1646356996091" duration="3239000" />
+      <workItem from="1646356996091" duration="3367000" />
+      <workItem from="1646369182269" duration="3595000" />
+      <workItem from="1646615423840" duration="4936000" />
+      <workItem from="1646620941496" duration="176000" />
+      <workItem from="1646629448872" duration="2347000" />
+      <workItem from="1646701751704" duration="1224000" />
+      <workItem from="1646702994851" duration="1253000" />
+      <workItem from="1646704265652" duration="2817000" />
     </task>
     <task id="LOCAL-00001" summary="修改目录名称">
       <created>1643189046151</created>
@@ -236,5 +270,9 @@
     <MESSAGE value="抽象、接口、多态" />
     <MESSAGE value="Regex" />
     <option name="LAST_COMMIT_MESSAGE" value="Regex" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

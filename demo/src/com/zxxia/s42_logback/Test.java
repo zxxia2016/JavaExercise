@@ -22,9 +22,12 @@ import org.slf4j.LoggerFactory;
  * ---logback-core:核心模块，是另2个模块的基础
  * ---logback-classic：log4的改良版，同时实现了slf4j api
  * ---logback-access：与Tomcat和Jetty等Servlet容器集成，以提供HTTP访问日志功能
- * ---logback.xml配置文件
+ * ---logback.xml配置文件，详细信息看该文件
  * ------日志文件位置：控制台、文件
  * ------日志文件日期
+ * ------日志级别：TRACE<DEBUG<INFO<WARIN<ERROR;默认级别debug
+ * 3. 如何导入库
+ * ---项目下新建lib文件夹，将jar文件添加到lib，在idea中，选中jar，然后右击，选择add library；再将logback.xml拷贝到src根目录
  */
 public class Test {
     public static final Logger logger = LoggerFactory.getLogger("Test");

@@ -15,6 +15,13 @@ import java.util.Arrays;
  * 3. 递归
  * ---直接递归
  * ---间接递归
+ * ---递归三大要素
+ * ------递归公式
+ * ------递归的终点
+ * ------递归的方向必须走向终点
+ * ---案例：阶乘：RecursionTest1
+ * ---案例：累加：RecursionTest2
+ * ---案例：吃桃子
  */
 
 class APITest implements iTest {
@@ -99,10 +106,12 @@ class RecursionTest implements iTest {
         System.out.println("---------------test-------------");
         test();
     }
+
     //间接递归
     void test2() {
         test3();
     }
+
     void test3() {
         test2();
     }
@@ -113,9 +122,48 @@ class RecursionTest implements iTest {
 class RecursionTest1 implements iTest {
     @Override
     public void run() {
+        System.out.println("6的阶乘：" + this.f(6));
+    }
 
+    int f(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return f(n - 1) * n;
     }
 }
+
+// f(n) = 1+2+3+...n
+class RecursionTest2 implements iTest {
+    @Override
+    public void run() {
+        System.out.println("1-100的总和 " + f(100));
+    }
+
+    int f(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return f(n - 1) + n;
+    }
+}
+
+// 猴子吃桃子，第一天摘了若干个，当即吃了一半，觉得不过瘾，于是又多吃了一个；每天如此，等到第10天，发现桃子只有1个了；请问猴子摘了多少桃子
+class MokeyRecursionTest implements iTest {
+    @Override
+    public void run() {
+        int x = 0;
+        // 100 50 25 12 fn = fn/2
+    }
+
+    int f(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return f((n + 1) * 2);
+    }
+}
+
 public class Test {
     public static void main(String[] args) {
         APITest apiTest = new APITest();
@@ -126,5 +174,11 @@ public class Test {
 
         RecursionTest1 recursionTest1 = new RecursionTest1();
         recursionTest1.run();
+
+        RecursionTest2 recursionTest2 = new RecursionTest2();
+        recursionTest2.run();
+
+        MokeyRecursionTest mokeyRecursionTest = new MokeyRecursionTest();
+        mokeyRecursionTest.run();
     }
 }

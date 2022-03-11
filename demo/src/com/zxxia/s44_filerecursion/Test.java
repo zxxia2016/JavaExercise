@@ -23,6 +23,7 @@ import java.util.Arrays;
  * ---案例：累加：RecursionTest2
  * ---案例：吃桃子:解法2 优秀
  * ---案例：文件搜索,并执行exe：FileRecursionTest
+ * ---案例：啤酒问题
  */
 
 class APITest implements iTest {
@@ -199,7 +200,6 @@ class FileRecursionTest implements iTest {
     }
 
     /**
-     *
      * @param dir
      * @param name
      * @return
@@ -218,9 +218,64 @@ class FileRecursionTest implements iTest {
                     return ff;
                 }
             }
-            return null;
         }
         return null;
+    }
+}
+
+// 需求：啤酒2元1瓶，4个盖子可以换一瓶，2个空瓶可以换一瓶，请问10元钱可以喝多少屏啤酒，剩余多少空瓶和盖子；
+// 答案：15瓶 3盖子 1空瓶
+class BeerQuestionTest implements iTest {
+    int _beer = 0;
+    int _totalCount = 0;
+    int _leftBottleCount = 0;
+    int _leftCoverCount = 0;
+
+    @Override
+    public void run() {
+        // 10 >> 5瓶 >> 5空瓶 5盖子 >> 1瓶+ 2瓶+1空瓶+1盖子 >> 3空瓶 + 3盖子 + 1空瓶 + 1盖子 >> 2瓶 + 1瓶 >> 3空瓶+3盖子>> 1瓶+1空瓶+3盖子 >> 4盖子+2空瓶 >> 2瓶 >> 2空瓶+2盖子 >> 1瓶+3盖子+1空瓶
+        int money = 10;
+        f(money / 2, 0, 0);
+        buy(money);
+        System.out.println("_beer: " + _totalCount + ", totalLid: " + _leftBottleCount + ",lid: " + _leftCoverCount);
+    }
+
+    // n=钱
+    // f(n)= n/2 >> n瓶 >> n >> n /4 && n %4 && n /2 && n%2
+    public void f(int n, int bottle, int lid) {
+        _beer += n;
+        int totalBottle = bottle + n;
+        int totalLid = lid + n;
+        if (totalLid < 2 || (totalLid < 4 && n < 2)) {
+            System.out.println(n);
+            System.out.println("_beer: " + _beer + ", totalLid: " + totalBottle + ",lid: " + totalLid);
+            return;
+        }
+        int totalBeer = (int) (totalBottle / 2) + (int) (totalLid / 4);
+        int b = totalBottle % 2;
+        int l = totalLid % 4;
+        f(totalBeer, b, l);
+    }
+
+    // 解法优秀，流程清楚
+    public void buy(int money) {
+        int b = money / 2;
+        _totalCount += b;
+
+        int allMoney = 0;
+        _leftCoverCount += b;
+        if (_leftCoverCount >= 4) {
+            allMoney += (int) (_leftCoverCount / 4) * 2;
+        }
+        _leftCoverCount = _leftCoverCount % 4;
+        _leftBottleCount += b;
+        if (_leftBottleCount >= 2) {
+            allMoney += (int) (_leftBottleCount / 2) * 2;
+        }
+        _leftBottleCount = _leftBottleCount % 2;
+        if (allMoney >= 2) {
+            buy(allMoney);
+        }
     }
 }
 
@@ -243,5 +298,8 @@ public class Test {
 
         FileRecursionTest fileRecursionTest = new FileRecursionTest();
         fileRecursionTest.run();
+
+        BeerQuestionTest beerQuestionTest = new BeerQuestionTest();
+        beerQuestionTest.run();
     }
 }

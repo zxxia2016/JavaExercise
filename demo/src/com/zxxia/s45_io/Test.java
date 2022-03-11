@@ -7,13 +7,30 @@ import java.util.Arrays;
 
 /**
  * IO
- * 1. charset 字符集基础知识：字符 一一对应 二级制
+ * 1.字符集
+ * - charset 字符集基础知识：字符 一一对应 二级制
  * ---ASCII编码（字符集）：1个字节就可以表示
  * ---GBK（中国人）：包含几万汉字，兼容ASCII表：2个字节就可以存储
  * ---Unicode编码（全世界），业界标准，万国码：变种：UTF-8、UTF-16、UTF-32；UTF-8：3个字节表示，2的24次方，千万数量
- * 2. 字符集编码、解码操作：String
+ * - 字符集编码、解码操作：String
  * ---GetBytes:默认编码（UTF-8），也可以填入编码方式
  * ---String构造器，填入解码方式
+ * 2. IO体系：
+ * - 按流的方向分
+ * --- I表示input，输入流，硬盘或网络读取数据到内存
+ * --- O表示output，输出流，写数据到硬盘或网络
+ * -按单位分
+ * ---字节流：视频数据
+ * ------字节输入流：InputStream（抽象类）
+ * ------字节输出流: OutputStream（抽象类）
+ * ---字符流：文本内容
+ * ------字符输入流: Reader（抽象类）
+ * ------字符输出流: Writer（抽象类）
+ * 3. IO使用
+ * 1. FileInputStream
+ * 2. FileOutputStream
+ * 3. FileReader
+ * 4. FileWriter
  */
 
 class CharSetTest implements iTest {
@@ -46,6 +63,8 @@ class CharSetTest implements iTest {
 
     }
 }
+
+
 public class Test {
     public static void main(String[] args) {
         CharSetTest charSetTest = new CharSetTest();

@@ -2,7 +2,7 @@ package com.zxxia.s45_io;
 
 import com.zxxia.iTest;
 
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.Arrays;
 
 /**
@@ -27,7 +27,7 @@ import java.util.Arrays;
  * ------字符输入流: Reader（抽象类）
  * ------字符输出流: Writer（抽象类）
  * 3. IO使用
- * 1. FileInputStream
+ * 1. FileInputStream：构造器，read(每次读取1字节、读取字节数组）;读取中文会输出乱码
  * 2. FileOutputStream
  * 3. FileReader
  * 4. FileWriter
@@ -39,7 +39,7 @@ class CharSetTest implements iTest {
         // 1. 编码：把文字转换成字节，默认UTF-8
         String name = "abc我爱你中国";
         //UTF-8
-        byte[]  bytes = name.getBytes();
+        byte[] bytes = name.getBytes();
         // 18=3+5*3
         System.out.println(bytes.length);
         // [97, 98, 99, -26, -120, -111, -25, -120, -79, -28, -67, -96, -28, -72, -83, -27, -101, -67]
@@ -47,7 +47,7 @@ class CharSetTest implements iTest {
 
         try {
             // 2. GBK编码：把文字转换成字节
-            byte[]  bytes1 = name.getBytes("GBK");
+            byte[] bytes1 = name.getBytes("GBK");
             // 13
             System.out.println(bytes1.length);
             // [97, 98, 99, -50, -46, -80, -82, -60, -29, -42, -48, -71, -6]
@@ -59,15 +59,51 @@ class CharSetTest implements iTest {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-
-
     }
 }
 
+class FileInputStreamTest implements iTest {
+    @Override
+    public void run() {
+        try {
+            System.out.println("------------------------FileInputStreamTest-----------------------");
+            InputStream inputStream = new FileInputStream("E:\\GitHub\\JavaExecise\\file.txt");
+            System.out.println((char) inputStream.read());//#
+            // 读取结束返回-1
+            int r = -1;
+            while (true) {
+                r = inputStream.read();
+                if (r == -1) {
+                    break;
+                }
+                // System.out.println((char) r);
+            }
+            String path = "E:\\GitHub\\JavaExecise\\file.txt";
+            File f = new File(path);
+            System.out.println(f.length());
+            InputStream inputStream1 = new FileInputStream(path);
+            byte[] buffer = new byte[(int) f.length()]; //1kb
+            int length = inputStream1.read(buffer);
+            String rs = new String(buffer, 0, length);
+            System.out.println(rs);
+
+            InputStream inputStream2 = new FileInputStream(path);
+            byte[] data = inputStream2.readAllBytes();
+            String rs1 = new String(data, 0, data.length);
+            System.out.println(rs1);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 public class Test {
     public static void main(String[] args) {
         CharSetTest charSetTest = new CharSetTest();
         charSetTest.run();
+
+        FileInputStreamTest fileInputStreamTest = new FileInputStreamTest();
+        fileInputStreamTest.run();
     }
 }

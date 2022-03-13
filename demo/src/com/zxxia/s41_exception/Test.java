@@ -88,6 +88,9 @@ class ExceptionTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        finally {
+            System.out.println("一定会执行");
+        }
     }
 }
 

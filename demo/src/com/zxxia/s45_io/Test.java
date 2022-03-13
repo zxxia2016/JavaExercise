@@ -26,11 +26,14 @@ import java.util.Arrays;
  * ---字符流：文本内容
  * ------字符输入流: Reader（抽象类）
  * ------字符输出流: Writer（抽象类）
- * 3. IO使用
- * 1. FileInputStream：构造器，read(每次读取1字节、读取字节数组）;读取中文会输出乱码
- * 2. FileOutputStream
- * 3. FileReader
- * 4. FileWriter
+ * 3. IO使用：字节流，会出现字符乱码问题，得用字符流
+ * ---1. FileInputStream：例子：FileInputStreamTest，构造器，read(每次读取1字节、读取字节数组）;读取中文会输出乱码
+ * ---2. FileOutputStream:例子：OutputFileStreamTest；
+ * ---3. FileReader
+ * ---4. FileWriter
+ * 4. 案例：文件复制：CopyFileTest
+ * 5.  案例：资源自动释放：ResourceReleaseTest，有关异常的时候，文件自动释放
+ *
  */
 
 class CharSetTest implements iTest {
@@ -98,12 +101,147 @@ class FileInputStreamTest implements iTest {
     }
 }
 
+class OutputFileStreamTest implements iTest {
+    @Override
+    public void run() throws IOException {
+        try {
+            String path = "E:\\GitHub\\JavaExecise\\file1.txt";
+
+            // 先清空之前的数据，这是覆盖管道；
+            // 追加管道
+            // OutputStream outputStream = new FileOutputStream(path, true);
+            // outputStream.write(1);
+            OutputStream outputStream = new FileOutputStream(path);
+            outputStream.write('a');
+            outputStream.write("\r\n".getBytes());
+            int a = 'b';
+            System.out.println(a);
+
+            byte[] data = {'a', 98, 99};
+            outputStream.write(data);
+            byte[] data1 = "我是中国人".getBytes();
+            outputStream.write(data1);
+
+            // outputStream.flush();
+            outputStream.close(); // 包含flush
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class CopyFileTest implements iTest {
+    @Override
+    public void run() throws IOException {
+        String path = "E:\\GitHub\\JavaExecise\\file1.txt";
+        String path1 = "E:\\GitHub\\JavaExecise\\file2.txt";
+        InputStream inputStream = new FileInputStream(path);
+        OutputStream outputStream = new FileOutputStream(path1);
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, length);
+        }
+        outputStream.close();
+        inputStream.close();
+        System.out.println("拷贝成功");
+    }
+}
+
+class MyConnection implements AutoCloseable {
+
+    @Override
+    public void close() throws IOException {
+        System.out.println("自动释放");
+    }
+}
+
+class ResourceReleaseTest implements iTest {
+    @Override
+    public void run() {
+        this.codeBlock1();
+        this.codeBlock2();
+    }
+
+    void codeBlock1() {
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
+        try {
+            String path = "E:\\GitHub\\JavaExecise\\file1.txt";
+            String path1 = "E:\\GitHub\\JavaExecise\\file2.txt";
+            inputStream = new FileInputStream(path);
+            outputStream = new FileOutputStream(path1);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, length);
+            }
+            // 如果这里出现异常，资源没法释放
+//            int a = 0;
+//            int b = 1 / a;
+//            System.out.println("除0这里不会执行");
+            outputStream.close();
+            inputStream.close();
+            System.out.println("codeBlock1 拷贝成功");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("codeBlock1 成功释放资源");
+        }
+    }
+
+    void codeBlock2() {
+        // jdk7开始的写法
+        String path = "E:\\GitHub\\JavaExecise\\file1.txt";
+        String path1 = "E:\\GitHub\\JavaExecise\\file2.txt";
+        try (
+                // 因为实现了Closeable接口，才可以放在这里
+                FileInputStream inputStream = new FileInputStream(path);
+                FileOutputStream outputStream = new FileOutputStream(path1);
+                MyConnection  c = new MyConnection();
+        ) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, length);
+            }
+            outputStream.close();
+            inputStream.close();
+            System.out.println("codeBlock2 拷贝成功");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         CharSetTest charSetTest = new CharSetTest();
         charSetTest.run();
 
         FileInputStreamTest fileInputStreamTest = new FileInputStreamTest();
         fileInputStreamTest.run();
+
+        OutputFileStreamTest outputFileStreamTest = new OutputFileStreamTest();
+        outputFileStreamTest.run();
+
+        CopyFileTest copyFileTest = new CopyFileTest();
+        copyFileTest.run();
+
+        ResourceReleaseTest resourceReleaseTest = new ResourceReleaseTest();
+        resourceReleaseTest.run();
     }
 }

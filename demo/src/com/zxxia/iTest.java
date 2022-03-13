@@ -5,5 +5,5 @@ package com.zxxia;
  * 教程地地址：https://www.bilibili.com/video/BV18J411W7cE?spm_id_from=333.999.0.0
  */
 public interface iTest {
-    void run();
+    void run() throws Exception;
 }

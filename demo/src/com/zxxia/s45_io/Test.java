@@ -29,11 +29,10 @@ import java.util.Arrays;
  * 3. IO使用：字节流，会出现字符乱码问题，得用字符流
  * ---1. FileInputStream：例子：FileInputStreamTest，构造器，read(每次读取1字节、读取字节数组）;读取中文会输出乱码
  * ---2. FileOutputStream:例子：OutputFileStreamTest；
- * ---3. FileReader
- * ---4. FileWriter
+ * ---3. FileReader：例子：FileReaderTest
+ * ---4. FileWriter: 例子：FileWriter
  * 4. 案例：文件复制：CopyFileTest
  * 5.  案例：资源自动释放：ResourceReleaseTest，有关异常的时候，文件自动释放
- *
  */
 
 class CharSetTest implements iTest {
@@ -103,7 +102,7 @@ class FileInputStreamTest implements iTest {
 
 class OutputFileStreamTest implements iTest {
     @Override
-    public void run() throws IOException {
+    public void run() throws Exception {
         try {
             String path = "E:\\GitHub\\JavaExecise\\file1.txt";
 
@@ -211,7 +210,7 @@ class ResourceReleaseTest implements iTest {
                 // 因为实现了Closeable接口，才可以放在这里
                 FileInputStream inputStream = new FileInputStream(path);
                 FileOutputStream outputStream = new FileOutputStream(path1);
-                MyConnection  c = new MyConnection();
+                MyConnection c = new MyConnection();
         ) {
             byte[] buffer = new byte[1024];
             int length;
@@ -227,8 +226,59 @@ class ResourceReleaseTest implements iTest {
     }
 }
 
+class FileReaderTest implements iTest {
+    @Override
+    public void run() {
+        String path = "E:\\GitHub\\JavaExecise\\file.txt";
+
+        try {
+            FileReader fileReader = new FileReader(path);
+            // 读取单个字符,以字符为单位,返回字符编码
+            int code;
+            while ((code = fileReader.read()) != -1) {
+                System.out.println((char) code);
+            }
+            // 以buffer来存放字符
+            FileReader fileReader1 = new FileReader(path);
+            char[] buffer = new char[1024];
+            int length;
+            while ((length = fileReader1.read(buffer)) != -1) {
+                String s = new String(buffer, 0 , length);
+                System.out.println(s);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+class FileWriteTest implements iTest {
+    @Override
+    public void run() throws Exception {
+        String path = "E:\\GitHub\\JavaExecise\\file1.txt";
+
+        try {
+            FileWriter fileWriter = new FileWriter(path);
+            // FileWriter fileWriter = new FileWriter(path, true);
+            fileWriter.write(1);
+            fileWriter.write("dddd");
+            fileWriter.write("\r\n");
+
+            fileWriter.write("我是中国人");
+            fileWriter.flush();
+            fileWriter.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
 public class Test {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         CharSetTest charSetTest = new CharSetTest();
         charSetTest.run();
 
@@ -243,5 +293,11 @@ public class Test {
 
         ResourceReleaseTest resourceReleaseTest = new ResourceReleaseTest();
         resourceReleaseTest.run();
+
+        FileReaderTest fileReaderTest = new FileReaderTest();
+        fileReaderTest.run();
+
+        FileWriteTest fileWriteTest = new FileWriteTest();
+        fileWriteTest.run();
     }
 }

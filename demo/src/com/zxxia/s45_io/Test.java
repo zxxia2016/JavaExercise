@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.Arrays;
 
 /**
- * IO
+ * IO：基础流：相对缓冲流来说
  * 1.字符集
  * - charset 字符集基础知识：字符 一一对应 二级制
  * ---ASCII编码（字符集）：1个字节就可以表示

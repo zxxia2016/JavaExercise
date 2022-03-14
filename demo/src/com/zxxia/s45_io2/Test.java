@@ -22,14 +22,20 @@ import java.io.*;
  * 3. implements Serializable
  * 4. transient属性
  * 5. 序列化版本管理数据
- * 打印流、IO框架等
+ * 打印流
+ * 1. PrintStream: 方便高效地将数据打印到文件中，打印什么，文件中就是什么；例子：PrintStreamTest
+ * 2. PrintWriter: 例子：PrintWriterTest
+ * 3. 2者差别：只有write函数有区别：一个写字节，一个写字符；其余没差别
+ * IO框架等
  */
 
 class BufferedStreamTest implements iTest {
     @Override
     public void run() {
-        String path = "E:\\GitHub\\JavaExecise\\file1.txt";
-        String path1 = "E:\\GitHub\\JavaExecise\\file2.txt";
+        String path = "file1.txt";
+        String path1 = "file2.txt";
+        File f = new File(path);
+        System.out.println(f.getAbsolutePath());
 
         try (
                 InputStream inputStream1 = new FileInputStream(path);
@@ -57,7 +63,7 @@ class BufferedStreamTest implements iTest {
 class BufferedReaderTest implements iTest {
     @Override
     public void run() throws Exception{
-        String path = "E:\\GitHub\\JavaExecise\\file.txt";
+        String path = "file.txt";
         FileReader fileReader = new FileReader(path);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         // 读取一行性能高，经典代码
@@ -71,7 +77,7 @@ class BufferedReaderTest implements iTest {
 class BufferedWriterTest implements iTest {
     @Override
     public void run() throws Exception{
-        String path = "E:\\GitHub\\JavaExecise\\file.txt";
+        String path = "file.txt";
         FileWriter fileWriter = new FileWriter(path);
         BufferedWriter bufferedWrite = new BufferedWriter(fileWriter);
         bufferedWrite.write("abc我是中国工人");
@@ -106,7 +112,7 @@ class Student implements Serializable {
 class ObjectStreamTest implements iTest {
     @Override
     public void run() throws Exception {
-        String path = "E:\\GitHub\\JavaExecise\\file1.txt";
+        String path = "file1.txt";
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(path));
         Student s = new Student("zhangsan");
         objectOutputStream.writeObject(s);
@@ -121,6 +127,51 @@ class ObjectStreamTest implements iTest {
     }
 }
 
+class PrintStreamTest implements iTest {
+    @Override
+    public void run() throws Exception {
+        String path = "file1.txt";
+        // 追加
+        FileOutputStream fileOutputStream = new FileOutputStream(path, true);
+        PrintStream printStream = new PrintStream(fileOutputStream);
+        //PrintStream printStream = new PrintStream(path);
+
+        Student s = new Student("zhangsan");
+        printStream.println("ddddddd");
+        printStream.println(s);
+        printStream.close();
+    }
+}
+
+class PrintWriterTest implements iTest {
+    @Override
+    public void run() throws Exception {
+        String path = "file3.txt";
+        PrintWriter printStream = new PrintWriter(path);
+        Student s = new Student("zhangsan");
+        printStream.write("ddddddd");
+        printStream.println(s);
+        printStream.close();
+    }
+}
+
+class PrintToFileTest implements iTest {
+    @Override
+    public void run() throws Exception {
+        System.out.println("1111");
+        System.out.println("22222");
+        System.out.println("33333");
+
+        // 改变输出流
+        PrintStream printStream = new PrintStream("file4.txt");
+        System.setOut(printStream);
+        //会输出到文件中
+        System.out.println("44444");
+        System.out.println("55555");
+    }
+}
+
+
 public class Test {
     public static void main(String[] args) throws Exception {
         BufferedStreamTest bufferedInputStream = new BufferedStreamTest();
@@ -134,5 +185,14 @@ public class Test {
 
         ObjectStreamTest objectStreamTest = new ObjectStreamTest();
         objectStreamTest.run();
+
+        PrintStreamTest printStreamTest = new PrintStreamTest();
+        printStreamTest.run();
+
+        PrintWriterTest printWriterTest = new PrintWriterTest();
+        printWriterTest.run();
+
+        PrintToFileTest printToFileTest = new PrintToFileTest();
+        printToFileTest.run();
     }
 }

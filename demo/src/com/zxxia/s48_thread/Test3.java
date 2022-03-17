@@ -37,9 +37,9 @@ class Account {
 
 // 取钱线程
 class DrawThread extends Thread {
-    private Account account;
+    private BankAccount account;
 
-    public DrawThread(Account account) {
+    public DrawThread(BankAccount account) {
         this.account = account;
     }
 
@@ -56,14 +56,14 @@ class DrawThread extends Thread {
 // 小明取钱后余额: -100000.0
 public class Test3 {
     public static void main(String[] args) {
-        Account account = new Account();
+        BankAccount account = new BankAccount();
         account.setMoney(100000);
 
-        DrawThread drawThread1 = new DrawThread(account);
+        DrawThreadTest drawThread1 = new DrawThreadTest(account);
         drawThread1.setName("小红");
         drawThread1.start();
 
-        DrawThread drawThread2 = new DrawThread(account);
+        DrawThreadTest drawThread2 = new DrawThreadTest(account);
         drawThread2.setName("小明");
         drawThread2.start();
     }

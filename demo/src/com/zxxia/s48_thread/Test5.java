@@ -16,8 +16,31 @@ import java.util.concurrent.*;
  * -----核心线程在忙且任务队列满了；并且还还可以创建临时线程的时候创建
  * ---什么时候拒绝任务
  * -----核心线程和临时线程忙，任务队列满了；
- * 3. 例子：ThreadPoolTest
+ * 3. 例子：ThreadPoolTest：没有返回值的线程池
+ * 4. 例子：ThreadPoolTest1：有返回值的线程池；返回值会阻塞当前线程；可以看下例子；
  */
+
+
+class MyCallable implements Callable<String> {
+
+    private final int n;
+
+    MyCallable(int n) {
+        this.n = n;
+    }
+
+    @Override
+    public String call() throws Exception {
+        long sum = 0;
+        for (int i = 0; i < this.n; i++) {
+            sum += i;
+        }
+        System.out.println(Thread.currentThread().getName() + "休眠");
+        // 1000秒
+        Thread.sleep(1000 * 1000);
+        return Thread.currentThread().getName() + ", " +this.n + "的总和为: " + sum;
+    }
+}
 
 class MyRunable implements Runnable {
     @Override
@@ -36,6 +59,39 @@ class MyRunable implements Runnable {
     }
 }
 
+class ThreadPoolTest1 implements iTest {
+    @Override
+    public void run() throws Exception {
+        int corePoolSize = 3;
+        int maximumPoolSize = 5;
+        long keepAliveTime = 6;
+        TimeUnit unit = TimeUnit.SECONDS;
+        BlockingQueue workQueue = new ArrayBlockingQueue<>(5);
+        ThreadFactory threadFactory = Executors.defaultThreadFactory();
+        // 拒绝策略
+        RejectedExecutionHandler handler = new ThreadPoolExecutor.AbortPolicy();
+        RejectedExecutionHandler handler1 = new ThreadPoolExecutor.DiscardPolicy();
+        RejectedExecutionHandler handler2 = new ThreadPoolExecutor.DiscardOldestPolicy(); //忽略最久执行策略
+        RejectedExecutionHandler handler3 = new ThreadPoolExecutor.CallerRunsPolicy(); //调用线程执行策略
+        ExecutorService threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
+        Future<String> future = threadPoolExecutor.submit(new MyCallable(100));
+        //这里阻塞住了；后面的线程人执行不了
+        System.out.println(System.currentTimeMillis() + ": " +future.get());
+
+        Future<String> future1 = threadPoolExecutor.submit(new MyCallable(1000));
+        System.out.println(System.currentTimeMillis() + ": " +future1.get());
+
+        Future<String> future2 = threadPoolExecutor.submit(new MyCallable(10000));
+        System.out.println(System.currentTimeMillis() + ": " +future2.get());
+
+        Future<String> future3 = threadPoolExecutor.submit(new MyCallable(1000));
+        System.out.println(System.currentTimeMillis() + ": " +future3.get());
+
+        Future<String> future4 = threadPoolExecutor.submit(new MyCallable(200000));
+        System.out.println(System.currentTimeMillis() + ": " +future4.get());
+    }
+}
+
 class ThreadPoolTest implements iTest {
     @Override
     public void run() throws Exception {
@@ -50,7 +106,7 @@ class ThreadPoolTest implements iTest {
         RejectedExecutionHandler handler1 = new ThreadPoolExecutor.DiscardPolicy();
         RejectedExecutionHandler handler2 = new ThreadPoolExecutor.DiscardOldestPolicy(); //忽略最久执行策略
         RejectedExecutionHandler handler3 = new ThreadPoolExecutor.CallerRunsPolicy(); //调用线程执行策略
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
+        ExecutorService threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
 
         MyRunable target = new MyRunable();
         threadPoolExecutor.execute(target);
@@ -76,9 +132,13 @@ class ThreadPoolTest implements iTest {
         threadPoolExecutor.shutdown();
     }
 }
+
 public class Test5 {
     public static void main(String[] args) throws Exception {
         ThreadPoolTest threadPoolTest = new ThreadPoolTest();
-        threadPoolTest.run();
+        // threadPoolTest.run();
+
+        ThreadPoolTest1 threadPoolTest1 = new ThreadPoolTest1();
+        threadPoolTest1.run();
     }
 }

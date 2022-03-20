@@ -31,7 +31,8 @@ import java.net.InetAddress;
  * UDP协议
  * --------每个包限制在64KB
  * --------适用场景：语音通话、视频会话等
- * --------案例：UDPClient、UPDSever
+ * --------案例：单发单收：UDPClient、UPDSever
+ * --------案例：多发多收：WhileTrueMulUDPClient、WhileTrueMulUDPServer；多个客户端发送给1个服务端
  */
 class InetAddressTest implements iTest {
     @Override

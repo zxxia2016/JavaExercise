@@ -33,6 +33,8 @@ import java.net.InetAddress;
  * --------适用场景：语音通话、视频会话等
  * --------案例：单发单收：UDPClient、UPDSever
  * --------案例：多发多收：WhileTrueMulUDPClient、WhileTrueMulUDPServer；多个客户端发送给1个服务端
+ * --------案例：广播：看包：broadcast；发送端，填写广播地址（255.255.255.255）和指定端口；接收端只要匹配端口即可
+ * --------案例：组播：看包：multicast；组播地址范围：224.0.0.0~239.255.255.255；具体操作：发送端：目的地是组播IP，上述范围；接收端绑定该组播IP；用MulticastSocket绑定组播IP
  */
 class InetAddressTest implements iTest {
     @Override

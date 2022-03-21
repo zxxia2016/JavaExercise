@@ -13,7 +13,7 @@ public class Client {
         Socket socket = new Socket("127.0.0.1", 7777);
         OutputStream outputStream = socket.getOutputStream();
         PrintStream ps = new PrintStream(outputStream);
-        ps.print("我已经发出要求：约吗？");
+        ps.println("我已经发出要求：约吗？");
         ps.flush();
         // socket.close();
     }

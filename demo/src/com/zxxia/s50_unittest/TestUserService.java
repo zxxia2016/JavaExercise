@@ -1,6 +1,6 @@
 package com.zxxia.s50_unittest;
 
-import org.junit.*;
+ import org.junit.*;
 
 /**
  * 单元测试
@@ -57,7 +57,7 @@ public class TestUserService {
         UserService userService = new UserService();
         boolean rs = userService.loginName("admin", "123456");
         Assert.assertEquals("你的逻辑可能异常", true, rs);
-
+        System.out.println("Ok");
     }
     @Test
     public void testSelectNames() {

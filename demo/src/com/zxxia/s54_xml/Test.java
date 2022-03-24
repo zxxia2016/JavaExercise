@@ -124,6 +124,7 @@ class XPathTest extends CTest {
                 saxReader.read(this.getClass().getResourceAsStream("Contacts2.xml"));
         // c、检索全部的名称
         List<Node> nameNodes = document.selectNodes("/contactList/contact/name");
+        // 潘金莲 武松 武大狼
         for (Node nameNode : nameNodes) {
             Element  nameEle = (Element) nameNode;
             System.out.println(nameEle.getTextTrim());

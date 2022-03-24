@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.baidu.com" elementFormDefault="qualified">
+    <element name="书架">
+        <complexType>
+            <sequence maxOccurs="unbounded">
+                <element name="书">
+                    <complexType>
+                        <sequence>
+                            <element name="书名" type="string"></element>
+                            <element name="作者" type="string"></element>
+                            <element name="价格" type="double"></element>
+                        </sequence>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

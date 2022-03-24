@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<student>
+    <name>女儿国王</name>
+    <sex>女</sex>
+    <hobby>追唐僧</hobby>
+    <info>
+        <age>30</age>
+        <addr>女儿国</addr>
+    </info>
+    <!-- CDATA 可存放任意内容，不用转移，输入CD自动添加标签-->
+    <sql>
+        select * from user where age &lt; 18;
+        select * from user where age &gt; 18 &amp;&amp; age &lt; 30;
+        <![CDATA[
+        select * from user where age < 18;
+        select * from user where age > 18 && age < 30;
+        ]]>
+    </sql>
+</student>

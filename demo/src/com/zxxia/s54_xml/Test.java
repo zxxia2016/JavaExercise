@@ -1,10 +1,7 @@
 package com.zxxia.s54_xml;
 
 import com.zxxia.CTest;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.Node;
+import org.dom4j.*;
 import org.dom4j.io.SAXReader;
 
 import java.io.InputStream;
@@ -72,6 +69,7 @@ class Dom4jTest extends CTest {
                     '}';
         }
     }
+
     @Override
     public void run() throws Exception {
         super.run();
@@ -111,6 +109,9 @@ class XPathTest extends CTest {
     public void run() throws Exception {
         super.run();
         this.parse01();
+        this.parse02();
+        this.parse03();
+        this.parse04();
     }
 
     /**
@@ -126,11 +127,80 @@ class XPathTest extends CTest {
         List<Node> nameNodes = document.selectNodes("/contactList/contact/name");
         // 潘金莲 武松 武大狼
         for (Node nameNode : nameNodes) {
-            Element  nameEle = (Element) nameNode;
+            Element nameEle = (Element) nameNode;
             System.out.println(nameEle.getTextTrim());
         }
     }
+
+    /**
+     * 相对路径：./子元素/子元素
+     */
+    public void parse02() throws DocumentException {
+        // a、创建解析器对象
+        SAXReader saxReader = new SAXReader();
+        // b、把XML加载成Document文档对象
+        Document document =
+                saxReader.read(this.getClass().getResourceAsStream("Contacts2.xml"));
+        Element root = document.getRootElement();
+        List<Node> nameNodes = root.selectNodes("./contact/name");
+        // 潘金莲 武松 武大狼
+        for (Node nameNode : nameNodes) {
+            Element nameEle = (Element) nameNode;
+            System.out.println(nameEle.getTextTrim());
+        }
+    }
+
+    /**
+     * 全文检索
+     * //元素 在全文查找这个元素
+     * //元素1/元素2 在全文找元素1下面的一级元素2
+     * //元素1//元素2 在全文找元素1下面的全部元素2
+     */
+    public void parse03() throws DocumentException {
+        // a、创建解析器对象
+        SAXReader saxReader = new SAXReader();
+        // b、把XML加载成Document文档对象
+        Document document =
+                saxReader.read(this.getClass().getResourceAsStream("Contacts2.xml"));
+        // List<Node> nameNodes = document.selectNodes("//name");
+        // List<Node> nameNodes = document.selectNodes("//contact/name");
+        List<Node> nameNodes = document.selectNodes("//contact//name");
+        for (Node nameNode : nameNodes) {
+            Element nameEle = (Element) nameNode;
+            System.out.println(nameEle.getTextTrim());
+        }
+    }
+
+    /**
+     * 属性查找
+     * //@属性名称 在全文查找这个属性
+     * //元素[@属性名称] 在全文检索包含该属性的元素对象
+     * //元素1[@属性名称=值] 在全文检索包含该属性的元素且属性值为该值的元素对象
+     */
+    public void parse04() throws DocumentException {
+        // a、创建解析器对象
+        SAXReader saxReader = new SAXReader();
+        // b、把XML加载成Document文档对象
+        Document document =
+                saxReader.read(this.getClass().getResourceAsStream("Contacts2.xml"));
+        List nodes = document.selectNodes("//@id");
+        for (Object node : nodes) {
+            Attribute attribute = (Attribute) node;
+            // id>>>>>1
+            System.out.println(attribute.getName() + ">>>>>" + attribute.getValue());
+        }
+        Node node = document.selectSingleNode("//name[@id]");
+        Element e = (Element)node;
+        // 我是西门庆
+        System.out.println(e.getTextTrim());
+
+        Node node1 = document.selectSingleNode("//name[@id=888]");
+        Element e1 = (Element)node1;
+        // 我是西门庆
+        System.out.println(e1.getTextTrim());
+    }
 }
+
 public class Test {
     public static void main(String[] args) throws Exception {
         Dom4jTest dom4jTest = new Dom4jTest();

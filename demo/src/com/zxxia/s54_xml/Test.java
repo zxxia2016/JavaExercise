@@ -117,12 +117,16 @@ class XPathTest extends CTest {
      * 绝对路径：/根元素/子元素/子元素
      */
     public void parse01() throws DocumentException {
+        // a、创建解析器对象
         SAXReader saxReader = new SAXReader();
-        Document document = saxReader.read(this.getClass().getResourceAsStream("Contacts.xml"));
-        List<Node> list = document.selectNodes("/contactList/contact/name");
-        for (Node node : list) {
-            Element element = (Element) node;
-            System.out.println(element.getTextTrim());
+        // b、把XML加载成Document文档对象
+        Document document =
+                saxReader.read(this.getClass().getResourceAsStream("Contacts2.xml"));
+        // c、检索全部的名称
+        List<Node> nameNodes = document.selectNodes("/contactList/contact/name");
+        for (Node nameNode : nameNodes) {
+            Element  nameEle = (Element) nameNode;
+            System.out.println(nameEle.getTextTrim());
         }
     }
 }

@@ -4,10 +4,12 @@ import com.zxxia.CTest;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
+import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
-import org.slf4j.Logger;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * XML
@@ -15,7 +17,7 @@ import java.io.InputStream;
  * 2. 应用场景：
  * -----xml内容作为消息进行网络传输
  * -----作为配置文件用于存储系统信息
- * 3. 用法
+ * 3. 用法：元素，属性，值，文本
  * ----文件后缀为xml
  * ----文档声明必须是第一行
  * ----根标签有且只有一个
@@ -36,17 +38,46 @@ import java.io.InputStream;
  * -----------JDOM
  * -----------dom4j：重点：性能优异，功能强大，易使用；Hibernate也用它
  * -----------jsoup
- * 7. dom4j:地址：https://dom4j.github.io/
- * ------导入jar
- *
+ * 7. XML解析技术：dom4j:
+ * ------地址：https://dom4j.github.io/
+ * ------导入dom4j-2.1.3.jar；案例：Dom4jTest
+ * 8. XML检索技术：XPath;依赖dom4j
+ * ------导入dom4j-2.1.3.jar和jaxen-1.1.2.jar；案例：XPathTest
  */
+
 class Dom4jTest extends CTest {
+    class Contact {
+        private int id;
+        private boolean vip;
+        private String name;
+        private char gender;
+        private String email;
+
+        public Contact(int id, boolean vip, String name, char gender, String email) {
+            this.id = id;
+            this.vip = vip;
+            this.name = name;
+            this.gender = gender;
+            this.email = email;
+        }
+
+        @Override
+        public String toString() {
+            return "Contact{" +
+                    "id=" + id +
+                    ", vip=" + vip +
+                    ", name='" + name + '\'' +
+                    ", gender=" + gender +
+                    ", email='" + email + '\'' +
+                    '}';
+        }
+    }
     @Override
     public void run() throws Exception {
         super.run();
 
         SAXReader saxReader = new SAXReader();
-        InputStream inputStream = Test.class.getResourceAsStream("Data.xml");
+        InputStream inputStream = Test.class.getResourceAsStream("Contacts.xml");
         if (inputStream == null) {
             System.out.println("error");
             return;
@@ -57,7 +88,42 @@ class Dom4jTest extends CTest {
         for (Element element : root.elements()) {
             System.out.println(element);
         }
-        System.out.println(root.element("书"));
+        System.out.println("-----------------------------------------------");
+        // 从xml文件中解析到对象
+        List<Contact> Contacts = new ArrayList<>();
+        List<Element> list = root.elements("contact");
+        for (Element element : list) {
+            Contact contact = new Contact(
+                    Integer.valueOf(element.attributeValue("id")),
+                    Boolean.valueOf(element.attributeValue("vip")),
+                    //去掉空格后的文本
+                    element.elementTextTrim("name"),
+                    element.elementText("gender").charAt(0),
+                    element.elementText("email"));
+            Contacts.add(contact);
+        }
+        System.out.println(Contacts);
+    }
+}
+
+class XPathTest extends CTest {
+    @Override
+    public void run() throws Exception {
+        super.run();
+        this.parse01();
+    }
+
+    /**
+     * 绝对路径：/根元素/子元素/子元素
+     */
+    public void parse01() throws DocumentException {
+        SAXReader saxReader = new SAXReader();
+        Document document = saxReader.read(this.getClass().getResourceAsStream("Contacts.xml"));
+        List<Node> list = document.selectNodes("/contactList/contact/name");
+        for (Node node : list) {
+            Element element = (Element) node;
+            System.out.println(element.getTextTrim());
+        }
     }
 }
 public class Test {
@@ -65,5 +131,7 @@ public class Test {
         Dom4jTest dom4jTest = new Dom4jTest();
         dom4jTest.run();
 
+        XPathTest xPathTest = new XPathTest();
+        xPathTest.run();
     }
 }

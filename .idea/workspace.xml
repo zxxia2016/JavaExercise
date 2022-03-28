@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb7e74dc-2ff2-435e-b0cb-20367939f248" name="Changes" comment="Regex">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/lib/commons-io-2.11.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s46_properties/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s47_commonsio/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_13_1__2_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_48.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JDBC/jdbc.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JDBC/lib/druid-1.1.12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JDBC/lib/junit-4.13.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JDBC/lib/mysql-connector-java-5.1.48.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JDBC/src/note.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/com/zxxia/s45_io2/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/com/zxxia/s45_io2/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/file.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,39 +51,52 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/lib" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="jdk.selected.JAVA_MODULE" value="corretto-16" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/jdbc/lib" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="build.tools" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\workspace\GitHub\JavaExecise\demo\lib" />
-      <recent name="E:\JavaExecise\demo\src\com\zxxia\s16_abstract" />
+      <recent name="E:\GitHub\JavaExecise\jdbc\lib" />
+      <recent name="E:\GitHub\JavaExecise\demo\src\com\zxxia\s53_proxy" />
+      <recent name="E:\GitHub\JavaExecise\demo\src\com\zxxia\s52_annotation" />
+      <recent name="E:\GitHub\JavaExecise\demo\src\com\zxxia\s49_net\socket" />
+      <recent name="E:\GitHub\JavaExecise\demo\src\com\zxxia\s49_net\upd\multicast" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitHub\JavaExecise\jdbc\lib" />
+      <recent name="E:\GitHub\JavaExecise\jdbc\src\com\zxxia\s1_quickstart" />
+      <recent name="E:\GitHub\JavaExecise\demo\lib" />
       <recent name="E:\workspace\GitHub\JavaExecise\demo\src" />
       <recent name="E:\workspace\GitHub\JavaExecise\demo\lib" />
-      <recent name="E:\t\JavaExecise\demo\src\com\zxxia\string" />
-      <recent name="E:\t\JavaExecise\demo\src\com\zxxia\arraylist" />
-      <recent name="E:\t\JavaExecise\demo\src\com\zxxia\store\" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zxxia.s55_factorypattern" />
+      <recent name="com.zxxia.s53_proxy" />
+      <recent name="com.zxxia" />
+      <recent name="com.zxxia.s49_net" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test (2)">
+  <component name="RunManager" selected="JUnit.BrandTest">
     <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s45_io2.Test" />
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s52_annotation.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s45_io2.*" />
+          <option name="PATTERN" value="com.zxxia.s52_annotation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,11 +105,11 @@
       </method>
     </configuration>
     <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s47_commonsio.Test" />
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s54_xml.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s47_commonsio.*" />
+          <option name="PATTERN" value="com.zxxia.s54_xml.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,25 +117,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (6)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s41_exception.Test" />
+    <configuration name="Test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s55_factorypattern.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s41_exception.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s42_logback.Test" />
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.zxxia.s42_logback.*" />
+          <option name="PATTERN" value="com.zxxia.s55_factorypattern.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -130,11 +131,11 @@
       </method>
     </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s46_properties.Test" />
-      <module name="demo" />
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s1_quickstart.Test" />
+      <module name="jdbc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s46_properties.*" />
+          <option name="PATTERN" value="com.zxxia.s1_quickstart.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,11 +144,11 @@
       </method>
     </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zxxia.s44_filerecursion.Test" />
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.s53_proxy.Test" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zxxia.s44_filerecursion.*" />
+          <option name="PATTERN" value="com.zxxia.s53_proxy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -168,20 +169,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BrandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jdbc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zxxia.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zxxia.example" />
+      <option name="MAIN_CLASS_NAME" value="com.zxxia.example.BrandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Test (6)" />
-      <item itemvalue="Application.Test" />
       <item itemvalue="Application.Test (1)" />
-      <item itemvalue="Application.Test (3)" />
       <item itemvalue="Application.Test (2)" />
+      <item itemvalue="Application.Test (3)" />
+      <item itemvalue="Application.Test (4)" />
+      <item itemvalue="JUnit.BrandTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test (2)" />
+        <item itemvalue="JUnit.BrandTest" />
+        <item itemvalue="Application.Test (4)" />
         <item itemvalue="Application.Test (3)" />
+        <item itemvalue="Application.Test (2)" />
         <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Test (6)" />
       </list>
     </recent_temporary>
   </component>
@@ -219,6 +235,18 @@
       <workItem from="1646875150209" duration="3249000" />
       <workItem from="1646960708693" duration="5424000" />
       <workItem from="1647221154590" duration="3032000" />
+      <workItem from="1647637043278" duration="19000" />
+      <workItem from="1647637085500" duration="121000" />
+      <workItem from="1647637225311" duration="6892000" />
+      <workItem from="1647744193307" duration="4049000" />
+      <workItem from="1647783979314" duration="1990000" />
+      <workItem from="1647984077369" duration="701000" />
+      <workItem from="1647984805022" duration="5008000" />
+      <workItem from="1648068479013" duration="3074000" />
+      <workItem from="1648159019191" duration="4325000" />
+      <workItem from="1648164186052" duration="160000" />
+      <workItem from="1648502479117" duration="639000" />
+      <workItem from="1648503166911" duration="3583000" />
     </task>
     <task id="LOCAL-00001" summary="修改目录名称">
       <created>1643189046151</created>

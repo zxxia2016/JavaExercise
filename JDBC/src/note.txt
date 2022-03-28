@@ -1,0 +1,3 @@
+JDBC
+
+1. 概念：操作不同关系型数据库（MYSQL、Oracle、DB2）的一套API；SUN公司定义接口，数据库厂商实现驱动的jar包即可

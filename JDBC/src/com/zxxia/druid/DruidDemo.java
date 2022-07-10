@@ -10,6 +10,7 @@ import java.util.Properties;
 
 /**
  * Druid数据库连接池演示
+ * alibaba开源的数据库连接池框架
  */
 public class DruidDemo {
 

@@ -43,6 +43,7 @@
        <!-- <mapper resource="com/zxxia/mapper/UserMapper.xml"/>-->
 
         <!--Mapper代理方式-->
+        <!--这样不用配置每个xml，会扫描改文件夹下的xml-->
         <package name="com.zxxia.mapper"/>
 
     </mappers>

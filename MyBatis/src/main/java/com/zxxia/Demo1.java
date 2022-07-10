@@ -1,5 +1,6 @@
 package com.zxxia;
 
+import com.zxxia.mapper.UserMapper;
 import com.zxxia.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -8,14 +9,13 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Mybatis入门；学习目标：基本配置，以及过程
+ * Mybatis：Mapper代理开发
  */
 
-public class Demo {
+public class Demo1 {
     public static void main(String[] args) throws IOException {
         System.out.println("hello mybatis");
 
@@ -27,7 +27,8 @@ public class Demo {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         //3. 执行sql
         //参数是一个字符串，该字符串必须是映射配置文件的namespace.id
-        List<User> list = sqlSession.selectList("selectAll");
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<User> list = userMapper.selectAll();
         System.out.println(list);
         //4. 释放资源
         sqlSession.close();

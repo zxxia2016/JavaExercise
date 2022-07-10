@@ -9,10 +9,31 @@
 
 <mapper namespace="com.zxxia.mapper.UserMapper">
 
+    <!--
+    解决问题：数据库字段的名称与代码中的名称不同；
+    解决方案：用resultMap取别名即可
+    -->
     <select id="selectAll" resultType="user">
         select *
         from tb_user;
     </select>
+
+    <!--
+    * 参数占位符：
+        1. #{}用#替换?，为了防止SQL注入
+        2. ${}:拼SQL，会存在SQL注入问题
+        3. 使用时机：
+            * 传参用#{}
+            * 表明或列名不固定情况下：用${} 会存在SQL注入问题
+    * 参数类型：可以不写 <select id="selectById" parameterType="int" resultType="user">
+    * 特殊字符：
+        1. 转义字符：例如： < 变成 &lt;
+            * 使用时机：字符少
+        2. CDATA区： <![CDATA[ < ]]>
+            * 使用时机：字符多
+
+    -->
+
     <select id="selectById" resultType="user">
         select *
         from tb_user where id = #{id};

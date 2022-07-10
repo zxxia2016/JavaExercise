@@ -1,1 +1,1 @@
-# JavaExecise
+# JavaExercise

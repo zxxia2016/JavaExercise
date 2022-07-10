@@ -1,4 +1,4 @@
-out/
+target/
 
 # User-specific stuff
 .idea/**/workspace.xml

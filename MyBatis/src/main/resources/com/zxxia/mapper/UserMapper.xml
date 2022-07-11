@@ -13,7 +13,13 @@
     解决问题：数据库字段的名称与代码中的名称不同；
     解决方案：用resultMap取别名即可
     -->
-    <select id="selectAll" resultType="user">
+
+    <resultMap id="UserResultMap" type="user">
+        <result column="username" property="user_name"></result>
+    </resultMap>
+
+
+    <select id="selectAll" resultMap="UserResultMap">
         select *
         from tb_user;
     </select>

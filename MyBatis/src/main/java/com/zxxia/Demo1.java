@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Mybatis：Mapper代理开发
+ * 核心是这句，做好映射：sqlSession.getMapper(UserMapper.class);对比Demo
  */
 
 public class Demo1 {

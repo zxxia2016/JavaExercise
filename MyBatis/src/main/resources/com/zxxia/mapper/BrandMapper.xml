@@ -15,17 +15,47 @@
     </select>
 
 
-
     <select id="selectById" resultType="Brand">
         select *
-        from tb_brand where id = #{id};
+        from tb_brand
+        where id = #{id};
 
     </select>
+
+
+    <!--    条件查询：这3个条件必须全部填写，才能查出结果-->
     <select id="selectByCondition" resultType="com.zxxia.pojo.Brand">
-        select * from tb_brand where status = #{status}
-                                 and company_name like #{companyName}
-                                 and brand_name like #{brandName}
+        select *
+        from tb_brand
+        where status = #{status}
+          and company_name like #{companyName}
+          and brand_name like #{brandName}
     </select>
 
+    <!--
+        动态条件查询
+            * if 条件判断
+                * test: 逻辑表达式
+            * 问题：如果第一个参数没填写，会出现sql语法错误
+                * 关键字：where
+    -->
+    <!--    <select id="selectByCondition" resultMap="brandResultMap">-->
+    <!--        select *-->
+    <!--        from tb_brand-->
+    <!--        /* where 1 = 1*/-->
+    <!--        <where>-->
+
+    <!--            <if test="status != null">-->
+    <!--                and status = #{status}-->
+    <!--            </if>-->
+    <!--            <if test="companyName != null and companyName != '' ">-->
+    <!--                and company_name like #{companyName}-->
+    <!--            </if>-->
+    <!--            <if test="brandName != null and brandName != '' ">-->
+    <!--                and brand_name like #{brandName}-->
+    <!--            </if>-->
+    <!--        </where>-->
+
+    <!--    </select>-->
 
 </mapper>

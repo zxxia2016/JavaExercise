@@ -1,4 +1,4 @@
-package com.itheima.test;
+package com.zxxia.test;
 
 import com.itheima.mapper.BrandMapper;
 import com.itheima.pojo.Brand;

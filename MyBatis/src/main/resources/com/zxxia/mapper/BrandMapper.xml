@@ -21,7 +21,11 @@
         from tb_brand where id = #{id};
 
     </select>
-
+    <select id="selectByCondition" resultType="com.zxxia.pojo.Brand">
+        select * from tb_brand where status = #{status}
+                                 and company_name like #{companyName}
+                                 and brand_name like #{brandName}
+    </select>
 
 
 </mapper>

@@ -1,9 +1,9 @@
-package com.itheima.test;
+package com.zxxia.test;
 
-import com.itheima.mapper.BrandMapper;
-import com.itheima.mapper.UserMapper;
-import com.itheima.pojo.Brand;
-import com.itheima.pojo.User;
+import com.zxxia.mapper.BrandMapper;
+import com.zxxia.mapper.UserMapper;
+import com.zxxia.pojo.Brand;
+import com.zxxia.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

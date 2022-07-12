@@ -1,6 +1,6 @@
 package com.zxxia.s50_unittest;
 
- import org.junit.*;
+import org.junit.*;
 
 /**
  * 单元测试
@@ -28,7 +28,7 @@ class UserService {
     }
 
     public void selectNames() {
-        System.out.println(10/2);
+        System.out.println(10 / 2);
         System.out.println("查询全部用户");
     }
 
@@ -39,14 +39,17 @@ public class TestUserService {
     public void before() {
         System.out.println("before");
     }
+
     @After
     public void after() {
         System.out.println("after");
     }
+
     @AfterClass
     public static void afterClass() {
         System.out.println("afterClass");
     }
+
     @BeforeClass
     public static void beforeClass() {
         System.out.println("beforeClass");
@@ -59,6 +62,7 @@ public class TestUserService {
         Assert.assertEquals("你的逻辑可能异常", true, rs);
         System.out.println("Ok");
     }
+
     @Test
     public void testSelectNames() {
         UserService userService = new UserService();

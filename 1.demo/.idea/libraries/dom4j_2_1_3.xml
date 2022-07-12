@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="dom4j-2.1.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/dom4j-2.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxen-1.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-4.13.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-classic-1.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-core-1.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.26.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

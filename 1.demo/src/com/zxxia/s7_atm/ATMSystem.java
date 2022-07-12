@@ -247,14 +247,14 @@ public class ATMSystem {
         Double quotaMoney = scanner.nextDouble();
 
         Account account = new Account(randomCardID(), strName, strPsw, 0, quotaMoney);
-        accountArrayList.add(account);
+        ATMSystem.accountArrayList.add(account);
         String strSuccess = String.format("恭喜您，%s先生/女士，您开户完成，您的卡号是：%s", account.name, account.cardID);
         System.out.println(strSuccess);
     }
 
     private static Account getAccount(String strName, String strPassword) {
         for (int i = 0; i < accountArrayList.size(); i++) {
-            Account account = accountArrayList.get(i);
+            Account account = ATMSystem.accountArrayList.get(i);
             if (account.name.equals(strName) && account.password.equals(strPassword)) {
                 return account;
             }
@@ -264,7 +264,7 @@ public class ATMSystem {
 
     private static Account getAccount(String cardID) {
         for (int i = 0; i < accountArrayList.size(); i++) {
-            Account account = accountArrayList.get(i);
+            Account account = ATMSystem.accountArrayList.get(i);
             if (account.cardID.equals(cardID)) {
                 return account;
             }

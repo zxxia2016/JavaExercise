@@ -2,7 +2,7 @@ package com.zxxia.s11_singleinstance;
 
 //懒汉模式
 class SingleInstance {
-    public static SingleInstance instance = new SingleInstance();
+    private static SingleInstance instance = new SingleInstance();
     public static SingleInstance getInstance() {
         return instance;
     }

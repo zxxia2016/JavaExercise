@@ -105,8 +105,8 @@ public class MyBatisTest {
 
         //List<Brand> brands = brandMapper.selectByCondition(status, companyName, brandName);
 //        List<Brand> brands = brandMapper.selectByCondition(brand);
-        List<Brand> brands = brandMapper.selectByCondition(map);
-        System.out.println(brands);
+//        List<Brand> brands = brandMapper.selectByCondition(map);
+//        System.out.println(brands);
 
         //5. 释放资源
         sqlSession.close();
